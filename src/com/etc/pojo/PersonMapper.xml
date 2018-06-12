@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--注意这里不能是resultmap只能是resulttype-->
+<mapper namespace="com.com.etc.pojo.Person">
+    <insert id="register" parameterType="com.etc.pojo.Person">
+        insert into person values(null,#{name},#{password});
+
+    </insert>
+    <delete id="deletebyoneperson" parameterType="int">
+        delete from person where id=#{id}
+    </delete>
+    <update id="updatebyoneperson" parameterType="com.etc.pojo.Person">
+        update person set password=#{password} where id=#{id}
+    </update>
+    <select id="selectAllperson" resultType="com.etc.pojo.Person">
+        select * from person
+    </select>
+
+
+</mapper>
